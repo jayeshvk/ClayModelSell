@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Jayesh\\Develope\\ClayModelSell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
+            "outputFile": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jayes\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\d12c27d176cdbf64ba5bbe5c03728095\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\jkotekar\\.gradle\\caches\\transforms-2\\files-2.1\\6c5a1a33c151bf1b1b969a4997bc8337\\appcompat-1.1.0\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",
