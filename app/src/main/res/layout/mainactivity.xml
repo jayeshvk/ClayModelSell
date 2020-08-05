@@ -21,6 +21,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/claymodelsell"
+            android:layout_gravity="center"/>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -20,12 +20,12 @@
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-xxxhdpi\\three.png"
     },
     {
-        "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
-    },
-    {
         "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
     },
     {
         "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu_main.xml.flat",
@@ -84,6 +84,10 @@
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\layout\\prompts.xml"
     },
     {
+        "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
         "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_call_24px.xml.flat",
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\drawable\\ic_baseline_call_24px.xml"
     },
@@ -102,6 +106,10 @@
     {
         "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
     },
     {
         "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
@@ -152,6 +160,10 @@
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\layout\\activity_locations.xml"
     },
     {
+        "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
         "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_daily_report.xml.flat",
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\layout\\activity_daily_report.xml"
     },
@@ -164,8 +176,20 @@
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\layout\\activity_sell.xml"
     },
     {
+        "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
+    },
+    {
         "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_one.png.flat",
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-xxxhdpi\\one.png"
+    },
+    {
+        "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nowidecg_claymodelsell.PNG.flat",
+        "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\drawable-nowidecg\\claymodelsell.PNG"
     },
     {
         "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
