@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Gradle: __local_aars__:C./Users/jkotekar/AndroidStudioProjects/ClayModelSell/app/libs/cie-bluetooth-printer-sdk-v2.1.6.jar:unspecified@jar">
+  <library name="Gradle: ./app/libs/cie-bluetooth-printer-sdk-v2.1.6.jar">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/app/libs/cie-bluetooth-printer-sdk-v2.1.6.jar!/" />
     </CLASSES>

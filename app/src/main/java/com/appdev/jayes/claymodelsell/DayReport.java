@@ -24,6 +24,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.cie.btp.CieBluetoothPrinter;
 import com.cie.btp.DebugLog;
@@ -43,13 +46,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Locale;
-
-import de.codecrafters.tableview.SortableTableView;
-import de.codecrafters.tableview.listeners.TableDataClickListener;
-import de.codecrafters.tableview.model.TableColumnDpWidthModel;
-import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
-import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
 import static com.appdev.jayes.claymodelsell.SellActivity.REQUEST_ENABLE_BT;
 import static com.cie.btp.BtpConsts.RECEIPT_PRINTER_CONN_DEVICE_NAME;
@@ -81,16 +79,17 @@ public class DayReport extends AppCompatActivity {
     private FirebaseUser user;
     ArrayList<SellModel> salesArray = new ArrayList<>();
     private static final String[] TABLE_HEADERS = {"R.No", "Name", "Rate", "Bal"};
-    String[][] SellModels;
-    String[][] SellModels1;
     private ProgressDialog pDialog;
-    Boolean flag;
-    SortableTableView<String[]> tableView;
     Calendar myCalendar = Calendar.getInstance();
 
     TextView fromDate, toDate;
     Boolean fromDateClicked = false;
     Boolean toDateClicked = false;
+
+    DayReportRecyclerViewAdapter recyclerViewAdapter;
+    RecyclerView recyclerView;
+
+    List<DayReportItems> transactionList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,6 +101,14 @@ public class DayReport extends AppCompatActivity {
         pDialog.setCancelable(false);
         pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
+        recyclerViewAdapter = new DayReportRecyclerViewAdapter(transactionList);
+
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(DayReport.this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        recyclerView.setAdapter(recyclerViewAdapter);
+
         fromDate = findViewById(R.id.fromDate);
         toDate = findViewById(R.id.toDate);
 
@@ -110,22 +117,6 @@ public class DayReport extends AppCompatActivity {
 
         final ArrayList<String> dataList = new ArrayList<>();
 
-
-        tableView = (SortableTableView<String[]>) findViewById(R.id.tableView);
-        tableView.setHeaderElevation(10);
-        TableColumnDpWidthModel columnModel = new TableColumnDpWidthModel(DayReport.this, 4, 100);
-        columnModel.setColumnWidth(0, 90);
-        columnModel.setColumnWidth(1, 130);
-        columnModel.setColumnWidth(2, 100);
-        columnModel.setColumnWidth(3, 100);
-        tableView.setColumnModel(columnModel);
-        tableView.setHeaderAdapter(new SimpleTableHeaderAdapter(this, TABLE_HEADERS));
-        tableView.addDataClickListener(new TableDataClickListener<String[]>() {
-            @Override
-            public void onDataClicked(int rowIndex, String[] clickedData) {
-                Toast.makeText(DayReport.this, ((String[]) clickedData)[2], Toast.LENGTH_LONG).show();
-            }
-        });
 
         fromDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,8 +136,6 @@ public class DayReport extends AppCompatActivity {
                 toDateClicked = true;
             }
         });
-
-
         //printer relevant
         pdWorkInProgress = new ProgressDialog(this);
         pdWorkInProgress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -161,29 +150,11 @@ public class DayReport extends AppCompatActivity {
             }
         });
 
-        SellModels = new String[salesArray.size()][4];
-        System.out.println("\n*********************" + salesArray.size());
-        if (salesArray.size() > 0) {
-            for (int i = 0; i < salesArray.size(); i++) {
-
-                SellModel s = salesArray.get(i);
-                SellModels[i][0] = s.getReceiptNo();
-                SellModels[i][1] = s.getName();
-                SellModels[i][2] = s.getPrice();
-                SellModels[i][3] = s.getBalance();
-                System.out.println("\n********" + s);
-
-            }
-        }
-
-        SellModels1 = new String[salesArray.size()][4];
         if (salesArray.size() > 0) {
             for (int i = 0; i < salesArray.size(); i++) {
                 SellModel s = salesArray.get(i);
-                SellModels1[i][0] = s.getReceiptNo();
-                SellModels1[i][1] = s.getModelName();
-                SellModels1[i][2] = s.getMobile();
-                SellModels1[i][3] = s.getDate().substring(5, 10);
+                DayReportItems item = new DayReportItems(s.getReceiptNo(), s.getName(), s.getPrice(), s.getBalance());
+                transactionList.add(item);
             }
         }
     }
@@ -211,13 +182,13 @@ public class DayReport extends AppCompatActivity {
 
     public void buttonFind(View view) {
         salesArray.clear();
-        SellModels = null;
-        SellModels1 = null;
+        transactionList.clear();
+        recyclerViewAdapter.notifyDataSetChanged();
         Query q = null;
-        showProgressBar(true);
-        if (fromDate.getText().toString().length() > 0 && toDate.getText().toString().length() > 0) {
 
-            q = mDatabase.child(UHelper.getTime("y")).orderByChild("date").startAt(fromDate.getText().toString().trim() + " 00:00:00").endAt(toDate.getText().toString().trim() + " 23:59:59" + "\uf8ff");
+        if (fromDate.getText().toString().length() > 0 && toDate.getText().toString().length() > 0) {
+            showProgressBar(true);
+            q = mDatabase.child(fromDate.getText().toString().substring(0, 4)).orderByChild("date").startAt(fromDate.getText().toString().trim() + " 00:00:00").endAt(toDate.getText().toString().trim() + " 23:59:59" + "\uf8ff");
             q.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -226,7 +197,6 @@ public class DayReport extends AppCompatActivity {
                     System.out.println("Inside onDataChanged");
                     if (dataSnapshot.exists()) {
                         for (DataSnapshot data : dataSnapshot.getChildren()) {
-                            System.out.println("\nQuery : " + data.getValue() + data.getKey());
                             SellModel temp = data.getValue(SellModel.class);
                             temp.setKey(data.getKey());
                             salesArray.add(temp);
@@ -237,7 +207,7 @@ public class DayReport extends AppCompatActivity {
                         showProgressBar(false);
                     }
                     populateData();
-                    tableView.setDataAdapter(new SimpleTableDataAdapter(DayReport.this, SellModels));
+                    recyclerViewAdapter.notifyDataSetChanged();
                 }
 
                 @Override
@@ -245,7 +215,7 @@ public class DayReport extends AppCompatActivity {
                     showProgressBar(false);
                 }
             });
-        }
+        } else toast("Enter the From Date and To Date");
     }
 
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -253,7 +223,6 @@ public class DayReport extends AppCompatActivity {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
-            // TODO Auto-generated method stub
             myCalendar.set(Calendar.YEAR, year);
             myCalendar.set(Calendar.MONTH, monthOfYear);
             myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -278,7 +247,9 @@ public class DayReport extends AppCompatActivity {
     }
 
     public void buttonPrint(View view) {
-        connectPrinter();
+        if (salesArray.size() > 0)
+            connectPrinter();
+        else toast("Nothing to Print");
     }
 
     private void connectPrinter() {
@@ -480,7 +451,7 @@ public class DayReport extends AppCompatActivity {
         System.out.println("Print status Stat**" + mPrinter.getPrinterStatus());
     }
 
-    private class AsyncPrint extends AsyncTask<Void, Void, Void> {
+    class AsyncPrint extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {

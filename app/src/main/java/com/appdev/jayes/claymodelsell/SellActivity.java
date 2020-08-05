@@ -318,7 +318,7 @@ public class SellActivity extends AppCompatActivity {
 
     public void buttonSave(View view) {
         //Validate and collect all data
-        if (name.getText().toString().length() == 0 || mobile.getText().toString().length() == 0 || price.getText().toString().length() == 0)
+        if (name.getText().toString().length() == 0 || mobile.getText().toString().length() == 0 || price.getText().toString().length() == 0 || modelName.getText().toString().length() == 0)
             Toast.makeText(SellActivity.this, "Please enter all details", Toast.LENGTH_SHORT).show();
         else {
             //checkReceiptNo();

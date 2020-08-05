@@ -78,9 +78,9 @@ public class Settings extends AppCompatActivity {
 
     }
 
-    public void buttonLocations(View view) {
+/*    public void buttonLocations(View view) {
         startActivity(new Intent(this, LocationsActivity.class));
-    }
+    }*/
 
     public void buttonBatteryStat(View view) {
         toast("Battery Percentage : " + mPrinter.getBatteryStatus());

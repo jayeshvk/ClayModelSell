@@ -14,6 +14,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Layout;
@@ -144,7 +145,8 @@ public class Deliver extends AppCompatActivity {
                 showInputDialog(salesArray.get(transactionID));
             }
         });
-
+        //Connect to printer
+        connectPrinter();
         // load the datat into array list
         tempLocationList.add("Location");
         tempModelNameList.add("Model");
@@ -413,7 +415,7 @@ public class Deliver extends AppCompatActivity {
                 .setPositiveButton("Update", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        if ((name.getText().toString().length() == 0 || mobile.getText().toString().length() == 0 || price.getText().toString().length() == 0)) {
+                        if ((name.getText().toString().length() == 0 || mobile.getText().toString().length() == 0 || price.getText().toString().length() == 0 || modelName.getText().toString().length() == 0)) {
                             Toast.makeText(Deliver.this, "Please enter all details", Toast.LENGTH_SHORT).show();
                         } else {
                             //save to database
@@ -468,9 +470,8 @@ public class Deliver extends AppCompatActivity {
                                 tempPrice = price.getText().toString();
                                 tempAdvance = advance.getText().toString();
                                 tempBalance = balance.getText().toString();
-                                //tempModelName = modelNameSpinner.getSelectedItem().toString();
                                 tempModelName = modelName.getText().toString();
-                                connectPrinter();
+                                new AsyncPrint().execute();
                             }
                         });
 
@@ -623,7 +624,6 @@ public class Deliver extends AppCompatActivity {
     protected void onPause() {
         DebugLog.logTrace();
         mPrinter.onActivityPause();
-        System.out.println("On pause");
         super.onPause();
         //this.unregisterReceiver(this.mReceiver);
     }
@@ -672,8 +672,9 @@ public class Deliver extends AppCompatActivity {
                 case RECEIPT_PRINTER_CONN_STATE_CONNECTED:
                     toast(R.string.printer_connected);
                     pdWorkInProgress.cancel();
-                    printReceipt();
-                    printSecondReceipt();
+/*                    printReceipt();
+                    printSecondReceipt();*/
+
                     break;
                 case RECEIPT_PRINTER_CONN_DEVICE_NAME:
                     break;
@@ -703,6 +704,35 @@ public class Deliver extends AppCompatActivity {
             }
         }
     };
+
+    private class AsyncPrint extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            printReceipt();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            //wait for printing to complete
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            //mPrinter.disconnectFromPrinter();
+
+
+        }
+    }
 
     private void printReceipt() {
         mPrinter.setPrinterWidth(PrinterWidth.PRINT_WIDTH_48MM);
@@ -748,10 +778,39 @@ public class Deliver extends AppCompatActivity {
         mPrinter.printLineFeed();
         mPrinter.printLineFeed();
         mPrinter.printLineFeed();
+
+        //Print second receipt
+        //Print receipt number
+        textPaint.setColor(Color.BLACK);
+        textPaint.setTextSize(125);
+        textPaint.setTypeface(custom_font);
+        mPrinter.printUnicodeText(salesData.getReceiptNo(), Layout.Alignment.ALIGN_CENTER, textPaint);
+        mPrintUnicodeText("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", 22, CENTER);
+        mPrintUnicodeText(UHelper.dateFormatymdhmsTOddmyyyy(salesData.getDate()), textSize, RIGHT);
+        mPrintUnicodeText("Name  :" + salesData.getName(), 32, LEFT);
+        mPrintUnicodeText("Mob   :" + salesData.getMobile(), textSize, LEFT);
+        if (!tempModelName.contains("Model"))
+            mPrintUnicodeText("Model : " + tempModelName, 32, LEFT);
+        mPrintUnicodeText("City  :" + salesData.getCity(), textSize, LEFT);
+        mPrintUnicodeText("Price :₹" + tempPrice, textSize, LEFT);
+        mPrintUnicodeText("Advnc :₹" + tempAdvance, textSize, LEFT);
+        mPrintUnicodeText("Bal :₹" + tempBalance, 34, LEFT);
+        mPrintUnicodeText("Text  :" + salesData.getComments(), textSize, LEFT);
+        mPrintUnicodeText("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", 22, CENTER);
+        mPrinter.printLineFeed();
+        mPrinter.printLineFeed();
+        mPrinter.printLineFeed();
+        mPrinter.printLineFeed();
+        mPrinter.printLineFeed();
+        mPrinter.printLineFeed();
+        mPrinter.printLineFeed();
+        mPrinter.printLineFeed();
+        mPrinter.printLineFeed();
+        mPrinter.printLineFeed();
         mPrinter.resetPrinter();
     }
 
-    private void printSecondReceipt() {
+/*    private void printSecondReceipt() {
         mPrinter.setPrinterWidth(PrinterWidth.PRINT_WIDTH_48MM);
         mPrinter.setAlignmentCenter();
         int textSize = 25;
@@ -786,7 +845,7 @@ public class Deliver extends AppCompatActivity {
         mPrinter.printLineFeed();
         mPrinter.printLineFeed();
         mPrinter.resetPrinter();
-    }
+    }*/
 
     private void mPrintUnicodeText(String text, int size, int almnt) {
         Layout.Alignment alignment = null;
