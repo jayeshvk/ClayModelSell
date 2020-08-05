@@ -25,8 +25,8 @@
             android:id="@+id/imageView"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            app:srcCompat="@drawable/claymodelsell"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/claymodelsell" />
 
         <Button
             android:layout_width="match_parent"

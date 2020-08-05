@@ -8,24 +8,24 @@
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-xxxhdpi\\two.png"
     },
     {
-        "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\layout_location_list_item.xml.flat",
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\layout\\location_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_three.png.flat",
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-xxxhdpi\\three.png"
     },
     {
-        "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu_main.xml.flat",
@@ -188,10 +188,6 @@
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-xxxhdpi\\one.png"
     },
     {
-        "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nowidecg_claymodelsell.PNG.flat",
-        "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\drawable-nowidecg\\claymodelsell.PNG"
-    },
-    {
         "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
@@ -210,6 +206,10 @@
     {
         "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\layout_login.xml.flat",
         "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\layout\\login.xml"
+    },
+    {
+        "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\drawable_claymodelsell.PNG.flat",
+        "source": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\src\\main\\res\\drawable\\claymodelsell.PNG"
     },
     {
         "merged": "C:\\Users\\jkotekar\\AndroidStudioProjects\\ClayModelSell\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_transfer.xml.flat",
